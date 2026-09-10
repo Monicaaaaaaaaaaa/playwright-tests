@@ -11,7 +11,10 @@ export class LoginPage {
     }
 
 async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto('https://www.saucedemo.com/', {
+        waitUntil: 'domcontentloaded',
+        timeout: 60000
+    });
 }
     async login(username, password) {
         await this.usernameInput.fill(username);
